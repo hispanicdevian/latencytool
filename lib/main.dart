@@ -62,7 +62,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 const SizedBox(height: 25.0),
 
                 const Text(
-                  "Time",
+                  "Intervals",
                   style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
                 ),
                 const SizedBox(height: 15.0),
@@ -101,7 +101,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 const SizedBox(height: 5.0),
 
                 const Text(
-                  "Intervals",
+                  "Time",
                   style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
                 ),
                 const SizedBox(height: 15.0),
