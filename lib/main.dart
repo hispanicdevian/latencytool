@@ -22,19 +22,23 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   List<String> buttonNames = [
-    '15 s',
-    '30 s',
-    '60 s',
-    '90 s',
-    '120 s',
-    '30 m',
+    '15 se',
+    '30 se',
+    '60 se',
+    '90 se',
+    '120 se',
+  ];
+
+  List<String> buttonNames2 = [
+    '30 mi',
     '1 hr',
     '3 hr',
     '6 hr',
     '12 hr',
     '24 hr',
-    '1 w',
-    '2 w',
+    '1 we',
+    '2 we',
+    '1 mo',
   ];
 
   @override
@@ -99,7 +103,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   spacing: 10.0,
                   runSpacing: 15.0,
                   children: [
-                    for (int i = 5; i < 9; i++)
+                    for (int i = 0; i < buttonNames2.length; i++)
                       ElevatedButton(
                         onPressed: () {
                           // Add button functionality here.
@@ -112,7 +116,7 @@ class _MyHomePageState extends State<MyHomePage> {
                             ),
                           ),
                         ),
-                        child: Text(buttonNames[i]),
+                        child: Text(buttonNames2[i]),
                       ),
                   ],
                 ),
