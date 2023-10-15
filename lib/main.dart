@@ -96,7 +96,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 const SizedBox(height: 15.0),
                 const Divider( // Add a divider line below the button
                   height: 20,
-                  color: Colors.grey,
+                  color: Colors.blueGrey,
                 ),
                 const SizedBox(height: 5.0),
 
