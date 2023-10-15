@@ -75,7 +75,7 @@ class _MyHomePageState extends State<MyHomePage> {
                         },
                         style: ButtonStyle(
                           minimumSize: MaterialStateProperty.all(
-                            Size(
+                            const Size(
                               100, // Set the desired width
                               50,  // Set the desired height
                             ),
@@ -106,7 +106,7 @@ class _MyHomePageState extends State<MyHomePage> {
                         },
                         style: ButtonStyle(
                           minimumSize: MaterialStateProperty.all(
-                            Size(
+                            const Size(
                               100, // Set the desired width
                               50,  // Set the desired height
                             ),
@@ -125,7 +125,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   },
                   style: ButtonStyle(
                     minimumSize: MaterialStateProperty.all(
-                      Size(
+                      const Size(
                         200, // Set the desired width
                         50,  // Set the desired height
                       ),
@@ -142,7 +142,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   },
                   style: ButtonStyle(
                     minimumSize: MaterialStateProperty.all(
-                      Size(
+                      const Size(
                         200, // Set the desired width
                         50,  // Set the desired height
                       ),
