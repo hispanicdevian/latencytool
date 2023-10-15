@@ -22,23 +22,23 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   List<String> buttonNames = [
-    '15 se',
-    '30 se',
-    '60 se',
-    '90 se',
-    '120 se',
+    '15 sec',
+    '30 sec',
+    '60 sec',
+    '90 sec',
+    '120 sec',
   ];
 
   List<String> buttonNames2 = [
-    '30 mi',
+    '30 min',
     '1 hr',
     '3 hr',
     '6 hr',
     '12 hr',
     '24 hr',
-    '1 we',
-    '2 we',
-    '1 mo',
+    '1 W',
+    '2 W',
+    '1 M',
   ];
 
   @override
@@ -59,7 +59,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     hintText: "Enter IP",
                   ),
                 ),
-                const SizedBox(height: 10.0),
+                const SizedBox(height: 25.0),
 
                 const Text(
                   "Time",
@@ -67,30 +67,33 @@ class _MyHomePageState extends State<MyHomePage> {
                 ),
                 const SizedBox(height: 15.0),
 
-                Wrap(
-                  alignment: WrapAlignment.spaceBetween,
-                  spacing: 10.0,
-                  runSpacing: 15.0,
-                  children: [
-                    for (int i = 0; i < buttonNames.length; i++)
-                      ElevatedButton(
-                        onPressed: () {
-                          // Add button functionality here.
-                        },
-                        style: ButtonStyle(
-                          minimumSize: MaterialStateProperty.all(
-                            const Size(
-                              100, // Set the desired width
-                              50,  // Set the desired height
+                Center(
+                  child: Wrap(
+                    alignment: WrapAlignment.center,
+                    spacing: 10.0,
+                    runSpacing: 15.0,
+                    children: [
+                      for (int i = 0; i < buttonNames.length; i++)
+                        ElevatedButton(
+                          onPressed: () {
+                            // Add button functionality here.
+                          },
+                          style: ButtonStyle(
+                            backgroundColor: MaterialStateProperty.all(Colors.blueAccent), // Change to the desired color
+                            minimumSize: MaterialStateProperty.all(
+                              const Size(
+                                100, // Set the desired width
+                                50,  // Set the desired height
+                              ),
                             ),
                           ),
+                          child: Text(buttonNames[i]),
                         ),
-                        child: Text(buttonNames[i]),
-                      ),
-                  ],
+                    ],
+                  ),
                 ),
 
-                const SizedBox(height: 15.0),
+                const SizedBox(height: 25.0),
 
                 const Text(
                   "Intervals",
@@ -98,36 +101,40 @@ class _MyHomePageState extends State<MyHomePage> {
                 ),
                 const SizedBox(height: 15.0),
 
-                Wrap(
-                  alignment: WrapAlignment.spaceBetween,
-                  spacing: 10.0,
-                  runSpacing: 15.0,
-                  children: [
-                    for (int i = 0; i < buttonNames2.length; i++)
-                      ElevatedButton(
-                        onPressed: () {
-                          // Add button functionality here.
-                        },
-                        style: ButtonStyle(
-                          minimumSize: MaterialStateProperty.all(
-                            const Size(
-                              100, // Set the desired width
-                              50,  // Set the desired height
+                Center(
+                  child: Wrap(
+                    alignment: WrapAlignment.center,
+                    spacing: 10.0,
+                    runSpacing: 15.0,
+                    children: [
+                      for (int i = 0; i < buttonNames2.length; i++)
+                        ElevatedButton(
+                          onPressed: () {
+                            // Add button functionality here.
+                          },
+                          style: ButtonStyle(
+                            backgroundColor: MaterialStateProperty.all(Colors.indigoAccent),
+                            minimumSize: MaterialStateProperty.all(
+                              const Size(
+                                100, // Set the desired width
+                                50,  // Set the desired height
+                              ),
                             ),
                           ),
+                          child: Text(buttonNames2[i]),
                         ),
-                        child: Text(buttonNames2[i]),
-                      ),
-                  ],
+                    ],
+                  ),
                 ),
 
-                const SizedBox(height: 15.0),
+                const SizedBox(height: 25.0),
 
                 ElevatedButton(
                   onPressed: () {
                     // Add button functionality here.
                   },
                   style: ButtonStyle(
+                    backgroundColor: MaterialStateProperty.all(Colors.lightBlue), // Change to the desired color
                     minimumSize: MaterialStateProperty.all(
                       const Size(
                         200, // Set the desired width
@@ -137,23 +144,8 @@ class _MyHomePageState extends State<MyHomePage> {
                   ),
                   child: const Text("Start Tool"),
                 ),
+                // const SizedBox(height: 10.0)
 
-                const SizedBox(height: 15.0),
-
-                ElevatedButton(
-                  onPressed: () {
-                    // Add button functionality here.
-                  },
-                  style: ButtonStyle(
-                    minimumSize: MaterialStateProperty.all(
-                      const Size(
-                        200, // Set the desired width
-                        50,  // Set the desired height
-                      ),
-                    ),
-                  ),
-                  child: const Text("Start"),
-                ),
               ],
             ),
           ),
