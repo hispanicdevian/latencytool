@@ -93,7 +93,12 @@ class _MyHomePageState extends State<MyHomePage> {
                   ),
                 ),
 
-                const SizedBox(height: 25.0),
+                const SizedBox(height: 15.0),
+                const Divider( // Add a divider line below the button
+                  height: 20,
+                  color: Colors.grey,
+                ),
+                const SizedBox(height: 5.0),
 
                 const Text(
                   "Intervals",
@@ -127,7 +132,12 @@ class _MyHomePageState extends State<MyHomePage> {
                   ),
                 ),
 
-                const SizedBox(height: 25.0),
+                const SizedBox(height: 10.0),
+                const Divider( // Add a divider line below the button
+                  height: 20,
+                  color: Colors.blueGrey,
+                ),
+                const SizedBox(height: 10.0),
 
                 ElevatedButton(
                   onPressed: () {
