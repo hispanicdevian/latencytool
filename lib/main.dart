@@ -21,6 +21,22 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  List<String> buttonNames = [
+    '15 s',
+    '30 s',
+    '60 s',
+    '90 s',
+    '120 s',
+    '30 m',
+    '1 hr',
+    '3 hr',
+    '6 hr',
+    '12 hr',
+    '24 hr',
+    '1 w',
+    '2 w',
+  ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -29,98 +45,109 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
       body: Center(
         child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 400.0), // Add horizontal padding
+          padding: const EdgeInsets.symmetric(horizontal: 400.0),
           child: IntrinsicHeight(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
-                // 1. Input box/area for the user to input an IP.
                 const TextField(
                   decoration: InputDecoration(
                     hintText: "Enter IP",
                   ),
                 ),
-                const SizedBox(height: 25.0),
+                const SizedBox(height: 10.0),
 
-                // 2. A row of 5 buttons.
-                Wrap(
-                  alignment: WrapAlignment.spaceBetween,
-                  spacing: 5.0, // Adjust the spacing as needed
-                  children: <Widget>[
-                    for (int i = 0; i < 5; i++)
-                      Expanded(
-                        child: ElevatedButton(
-                          onPressed: () {
-                            // Add button functionality here.
-                          },
-                          child: Text("Button $i"),
-                        ),
-                      ),
-                  ],
-                ),
-                const SizedBox(height: 15.0),
-
-                // 3. A header named "time".
                 const Text(
                   "Time",
                   style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
                 ),
                 const SizedBox(height: 15.0),
 
-                // 4. Below time, another Row of 4 buttons.
                 Wrap(
                   alignment: WrapAlignment.spaceBetween,
-                  spacing: 5.0, // Adjust the spacing as needed
-                  children: <Widget>[
-                    for (int i = 0; i < 4; i++)
-                      Expanded(
-                        child: ElevatedButton(
-                          onPressed: () {
-                            // Add button functionality here.
-                          },
-                          child: Text("Button $i"),
-                        ),
-                      ),
-                  ],
-                ),
-                const SizedBox(height: 8.0),
-
-                // 5. A third row of 4 buttons with customizable horizontal spacing between them.
-                Wrap(
-                  alignment: WrapAlignment.spaceBetween,
-                  spacing: 5.0, // Adjust the spacing as needed
-                  children: <Widget>[
-                    for (int i = 0; i < 4; i++)
+                  spacing: 10.0,
+                  runSpacing: 15.0,
+                  children: [
+                    for (int i = 0; i < buttonNames.length; i++)
                       ElevatedButton(
                         onPressed: () {
                           // Add button functionality here.
                         },
-                        child: Text("Button $i"),
+                        style: ButtonStyle(
+                          minimumSize: MaterialStateProperty.all(
+                            const Size(
+                              100, // Set the desired width
+                              50,  // Set the desired height
+                            ),
+                          ),
+                        ),
+                        child: Text(buttonNames[i]),
                       ),
                   ],
                 ),
 
-                const SizedBox(height: 20.0),
+                const SizedBox(height: 15.0),
 
-                // 6. A 4th row of 1 large button (fills maximum width).
+                const Text(
+                  "Intervals",
+                  style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                ),
+                const SizedBox(height: 15.0),
+
                 Wrap(
-                  alignment: WrapAlignment.center,
-                  children: <Widget>[
-                    ElevatedButton(
-                      onPressed: () {
-                  // Add button functionality here.
-                },
-                child: const Text("Start Tool"),
-              ),
-            ],
-          ),
-                const SizedBox(height: 20.0),
+                  alignment: WrapAlignment.spaceBetween,
+                  spacing: 10.0,
+                  runSpacing: 15.0,
+                  children: [
+                    for (int i = 0; i < buttonNames.length; i++)
+                      ElevatedButton(
+                        onPressed: () {
+                          // Add button functionality here.
+                        },
+                        style: ButtonStyle(
+                          minimumSize: MaterialStateProperty.all(
+                            const Size(
+                              100, // Set the desired width
+                              50,  // Set the desired height
+                            ),
+                          ),
+                        ),
+                        child: Text(buttonNames[i]),
+                      ),
+                  ],
+                ),
 
-                // 7. Another large button named "Start".
+                const SizedBox(height: 15.0),
+
                 ElevatedButton(
                   onPressed: () {
                     // Add button functionality here.
                   },
+                  style: ButtonStyle(
+                    minimumSize: MaterialStateProperty.all(
+                      const Size(
+                        200, // Set the desired width
+                        50,  // Set the desired height
+                      ),
+                    ),
+                  ),
+                  child: const Text("Start Tool"),
+                ),
+
+                const SizedBox(height: 15.0),
+
+                ElevatedButton(
+                  onPressed: () {
+                    // Add button functionality here.
+                  },
+                  style: ButtonStyle(
+                    minimumSize: MaterialStateProperty.all(
+                      const Size(
+                        200, // Set the desired width
+                        50,  // Set the desired height
+                      ),
+                    ),
+                  ),
                   child: const Text("Start"),
                 ),
               ],
