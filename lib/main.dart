@@ -1,8 +1,4 @@
-import 'package:dart_ping/dart_ping.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:latencytool/ping_result_screen.dart';
-// Import the PingResultsScreen
 
 void main() => runApp(const MyApp());
 
@@ -45,35 +41,8 @@ class _MyHomePageState extends State<MyHomePage> {
     '1 M',
   ];
 
-  List<String> ipAddresses = [];
-  List<String> pingResults = [];
-
-  void startPing() async {
-    for (final ipAddress in ipAddresses) {
-      final ping = Ping(ipAddress, count: 5);
-
-      // [Optional]
-      // Preview command that will be run (helpful for debugging)
-      if (kDebugMode) {
-        print('Running command: ${ping.command}');
-      }
-
-      // Begin ping process and listen for output
-      await for (final event in ping.stream) {
-        if (kDebugMode) {
-          print(event);
-        }
-        pingResults.add(event as String);
-      }
-    }
-
-    // After pinging, navigate to the PingResultsScreen
-    Navigator.of(context).push(
-      MaterialPageRoute(
-        builder: (context) => PingResultsScreen(pingResults),
-      ),
-    );
-  }
+  // List to store IP addresses
+  List<String> ipAddresses = List.filled(12, ""); // Initialize with 10 empty strings
 
   @override
   Widget build(BuildContext context) {
@@ -86,6 +55,7 @@ class _MyHomePageState extends State<MyHomePage> {
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: <Widget>[
+            // Left column for IP input
             Flexible(
               child: Padding(
                 padding: const EdgeInsets.all(20.0),
@@ -100,11 +70,8 @@ class _MyHomePageState extends State<MyHomePage> {
                             hintText: "Enter IP ${index + 1}",
                           ),
                           onChanged: (text) {
-                            if (index >= ipAddresses.length) {
-                              ipAddresses.add(text);
-                            } else {
-                              ipAddresses[index] = text;
-                            }
+                            // Update the IP address in the list
+                            ipAddresses[index] = text;
                           },
                         ),
                     ],
@@ -112,6 +79,14 @@ class _MyHomePageState extends State<MyHomePage> {
                 ),
               ),
             ),
+
+            // Vertical separator line
+            Container(
+              width: 0.5,
+              color: Colors.black,
+            ),
+
+            // Right column for the rest of the UI
             Flexible(
               child: Padding(
                 padding: const EdgeInsets.all(20.0),
@@ -126,6 +101,8 @@ class _MyHomePageState extends State<MyHomePage> {
                           style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
                         ),
                         const SizedBox(height: 15.0),
+
+                        // Rest of your UI components can be added here
                         Center(
                           child: Wrap(
                             alignment: WrapAlignment.center,
@@ -151,17 +128,20 @@ class _MyHomePageState extends State<MyHomePage> {
                             ],
                           ),
                         ),
+
                         const SizedBox(height: 15.0),
                         const Divider(
                           height: 20,
                           color: Colors.blueGrey,
                         ),
                         const SizedBox(height: 5.0),
+
                         const Text(
                           "Time",
                           style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
                         ),
                         const SizedBox(height: 15.0),
+
                         Center(
                           child: Wrap(
                             alignment: WrapAlignment.center,
@@ -187,14 +167,18 @@ class _MyHomePageState extends State<MyHomePage> {
                             ],
                           ),
                         ),
+
                         const SizedBox(height: 10.0),
                         const Divider(
                           height: 20,
                           color: Colors.blueGrey,
                         ),
                         const SizedBox(height: 10.0),
+
                         ElevatedButton(
-                          onPressed: startPing, // Start the ping process
+                          onPressed: () {
+                            // Add button functionality here.
+                          },
                           style: ButtonStyle(
                             backgroundColor: MaterialStateProperty.all(Colors.lightBlue),
                             minimumSize: MaterialStateProperty.all(
