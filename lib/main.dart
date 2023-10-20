@@ -1,7 +1,7 @@
 import 'package:dart_ping/dart_ping.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:latencytool/ping_result_screen.dart';
+import 'package:latencytool/ping_results_screen.dart';
 import 'ping_results_screen.dart'; // Import the PingResultsScreen
 
 void main() => runApp(const MyApp());
