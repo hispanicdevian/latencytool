@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 void main() => runApp(const MyApp());
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  const MyApp({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -14,7 +14,7 @@ class MyApp extends StatelessWidget {
 }
 
 class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key});
+  const MyHomePage({Key? key}) : super(key: key);
 
   @override
   State<MyHomePage> createState() => _MyHomePageState();
@@ -41,6 +41,9 @@ class _MyHomePageState extends State<MyHomePage> {
     '1 M',
   ];
 
+  // List to store IP addresses
+  List<String> ipAddresses = List.filled(12, ""); // Initialize with 10 empty strings
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -48,25 +51,29 @@ class _MyHomePageState extends State<MyHomePage> {
         title: const Text("Your App Name"),
       ),
       body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 20.0), // Add 20 padding to both sides
+        padding: const EdgeInsets.symmetric(horizontal: 20.0),
         child: Row(
-          crossAxisAlignment: CrossAxisAlignment.stretch, // Stretch both columns vertically
+          crossAxisAlignment: CrossAxisAlignment.stretch,
           children: <Widget>[
             // Left column for IP input
-            const Flexible(
+            Flexible(
               child: Padding(
-                padding: EdgeInsets.all(20.0), // Add 20 padding to both sides
+                padding: const EdgeInsets.all(20.0),
                 child: Align(
-                  alignment: Alignment.centerLeft,
+                  alignment: Alignment.center,
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
-                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: <Widget>[
-                      TextField(
-                        decoration: InputDecoration(
-                          hintText: "Enter IP",
+                      for (int index = 0; index < ipAddresses.length; index++)
+                        TextField(
+                          decoration: InputDecoration(
+                            hintText: "Enter IP ${index + 1}",
+                          ),
+                          onChanged: (text) {
+                            // Update the IP address in the list
+                            ipAddresses[index] = text;
+                          },
                         ),
-                      ),
                     ],
                   ),
                 ),
@@ -75,14 +82,14 @@ class _MyHomePageState extends State<MyHomePage> {
 
             // Vertical separator line
             Container(
-              width: 0.5, // Set the desired width for the separator
-              color: Colors.black, // Set the color of the separator
+              width: 0.5,
+              color: Colors.black,
             ),
 
             // Right column for the rest of the UI
             Flexible(
               child: Padding(
-                padding: const EdgeInsets.all(20.0), // Add 20 padding to both sides
+                padding: const EdgeInsets.all(20.0),
                 child: Align(
                   alignment: Alignment.centerRight,
                   child: IntrinsicHeight(
