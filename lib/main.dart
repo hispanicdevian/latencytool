@@ -2,7 +2,6 @@ import 'package:dart_ping/dart_ping.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:latencytool/ping_results_screen.dart';
-import 'ping_results_screen.dart'; // Import the PingResultsScreen
 
 void main() => runApp(const MyApp());
 
@@ -32,7 +31,6 @@ class _MyHomePageState extends State<MyHomePage> {
     for (final ipAddress in ipAddresses) {
       final ping = Ping(ipAddress, count: 5);
 
-      // Begin ping process and listen for output
       await for (final event in ping.stream) {
         if (kDebugMode) {
           print(event);
@@ -60,7 +58,6 @@ class _MyHomePageState extends State<MyHomePage> {
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: <Widget>[
-            // Left column for IP input
             Flexible(
               child: Padding(
                 padding: const EdgeInsets.all(20.0),
@@ -84,13 +81,11 @@ class _MyHomePageState extends State<MyHomePage> {
               ),
             ),
 
-            // Vertical separator line
             Container(
               width: 0.5,
               color: Colors.black,
             ),
 
-            // Right column for the rest of the UI
             Flexible(
               child: Padding(
                 padding: const EdgeInsets.all(20.0),
@@ -104,7 +99,7 @@ class _MyHomePageState extends State<MyHomePage> {
                         // ...
 
                         ElevatedButton(
-                          onPressed: startPing, // Start the ping process
+                          onPressed: startPing,
                           style: ButtonStyle(
                             backgroundColor: MaterialStateProperty.all(Colors.lightBlue),
                             minimumSize: MaterialStateProperty.all(
